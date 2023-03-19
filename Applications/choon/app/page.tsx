@@ -1,6 +1,7 @@
-import { AppShell, Header, Navbar } from "@mantine/core";
+"use client";
 import React from "react";
+import FormCheckSection from "../features/formcheck/components/formCheckSection";
 
 export default function Page() {
-	return "Test";
+	return <FormCheckSection />;
 }

@@ -1,0 +1,29 @@
+version: '3.4'
+
+networks:
+  choon-network: {}
+
+services:
+
+  choon.api:
+    image: ${DOCKER_REGISTRY-}choonapi
+    networks:
+      - choon-network
+    build:
+      context: .
+      dockerfile: Applications/Choon.Api/Dockerfile
+    environment:
+      FormCheck__AzureStorage__ConnectionString: AccountName=devstoreaccount1;AccountKey=Eby8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw==;DefaultEndpointsProtocol=https;BlobEndpoint=https://choon.azurite:10010/devstoreaccount1;QueueEndpoint=https://choon.azurite:10011/devstoreaccount1;TableEndpoint=https://choon.azurite:10012/devstoreaccount1
+        
+
+  choon.azurite:
+    image: mcr.microsoft.com/azure-storage/azurite
+    networks:
+      - choon-network
+    ports:
+      - "10010:10010"
+      - "10011:10011"
+      - "10012:10012"
+    entrypoint: "azurite --loose -l /data --oauth=basic --blobPort 10010 --blobHost 0.0.0.0 --queuePort 10011 --queueHost 0.0.0.0 --tablePort 10012 --tableHost 0.0.0.0"
+    labels:
+      - chooncompose

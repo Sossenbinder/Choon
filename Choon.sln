@@ -7,6 +7,12 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Applications", "Application
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Choon.Api", "Applications\Choon.Api\Choon.Api.csproj", "{AD306741-33FB-4EA2-AECC-D3205F3CA6E7}"
 EndProject
+Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{501EBDD2-8922-48E6-8EC8-D193920D0E8F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Domains", "Domains", "{627721A1-05E2-4118-8886-DDDA47A4FBE5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Domains.FormCheck", "Domains\Domains.FormCheck\Domains.FormCheck.csproj", "{5E9B3F6F-0DB7-4E58-9D6D-25ED59264770}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -17,12 +23,21 @@ Global
 		{AD306741-33FB-4EA2-AECC-D3205F3CA6E7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AD306741-33FB-4EA2-AECC-D3205F3CA6E7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AD306741-33FB-4EA2-AECC-D3205F3CA6E7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{501EBDD2-8922-48E6-8EC8-D193920D0E8F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{501EBDD2-8922-48E6-8EC8-D193920D0E8F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{501EBDD2-8922-48E6-8EC8-D193920D0E8F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{501EBDD2-8922-48E6-8EC8-D193920D0E8F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5E9B3F6F-0DB7-4E58-9D6D-25ED59264770}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5E9B3F6F-0DB7-4E58-9D6D-25ED59264770}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5E9B3F6F-0DB7-4E58-9D6D-25ED59264770}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5E9B3F6F-0DB7-4E58-9D6D-25ED59264770}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{AD306741-33FB-4EA2-AECC-D3205F3CA6E7} = {D371479A-7A94-4664-B1E6-37E9E644CFDB}
+		{5E9B3F6F-0DB7-4E58-9D6D-25ED59264770} = {627721A1-05E2-4118-8886-DDDA47A4FBE5}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {C779F826-228D-4013-8C10-7821991D11B7}

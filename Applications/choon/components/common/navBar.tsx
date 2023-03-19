@@ -1,5 +1,7 @@
-import { Button, createStyles, FileButton, Flex, Header, Text } from "@mantine/core";
+import UploadButton from "@formcheck/components/upload/uploadButton";
+import { createStyles, Flex, Header, Text, Group } from "@mantine/core";
 import React from "react";
+import ThemeToggleButton from "./controls/themeToggleButton";
 
 const useStyles = createStyles((_) => ({
 	header: {
@@ -15,14 +17,10 @@ export default function NavBar() {
 		<Header height={40}>
 			<Flex justify="space-between" align="center" className={classes.header}>
 				<Text>Choon</Text>
-				<Button
-					sx={{
-						backgroundColor: "gray",
-					}}
-					size="xs"
-				>
-					Upload
-				</Button>
+				<Group>
+					<ThemeToggleButton />
+					<UploadButton />
+				</Group>
 			</Flex>
 		</Header>
 	);
