@@ -15,7 +15,7 @@
 		"jsx": "preserve",
 		"incremental": true,
 		"paths": {
-			"@common/*": ["./components/common/*"],
+			"@common/*": ["./common/components/*"],
 			"@formcheck/*": ["./features/formcheck/*"]
 		},
 		"plugins": [

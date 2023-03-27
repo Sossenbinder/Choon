@@ -14,7 +14,6 @@ services:
       dockerfile: Applications/Choon.Api/Dockerfile
     environment:
       FormCheck__AzureStorage__ConnectionString: AccountName=devstoreaccount1;AccountKey=Eby8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw==;DefaultEndpointsProtocol=https;BlobEndpoint=https://choon.azurite:10010/devstoreaccount1;QueueEndpoint=https://choon.azurite:10011/devstoreaccount1;TableEndpoint=https://choon.azurite:10012/devstoreaccount1
-        
 
   choon.azurite:
     image: mcr.microsoft.com/azure-storage/azurite
