@@ -1,5 +1,6 @@
 ﻿using Domains.FormCheck.DI;
 using Domains.FormCheck.Models.Configuration;
+using Infrastructure.Models.Options;
 
 namespace Choon.Api
 {
@@ -11,16 +12,15 @@ namespace Choon.Api
 			RegisterModules(builder.Services);
 		}
 
-		private static IServiceCollection RegisterOptions(IServiceCollection serviceCollection, IConfiguration configuration)
+		private static void RegisterOptions(IServiceCollection serviceCollection, IConfiguration configuration)
 		{
-			return serviceCollection
-				.Configure<FormCheckAzureStorageSettings>(configuration.GetSection(ConfigurationSections.FormCheckAzureStorageSettings));
+			serviceCollection.Configure<FormCheckAzureStorageSettings>(configuration.GetSection(ConfigurationSections.FormCheckAzureStorageSettings));
+			serviceCollection.Configure<SqlOptions>(configuration.GetSection(ConfigurationSections.SqlOptionsSettings));
 		}
 
-		private static IServiceCollection RegisterModules(IServiceCollection serviceCollection)
+		private static void RegisterModules(IServiceCollection serviceCollection)
 		{
-			return serviceCollection
-				.RegisterFormCheckModule();
+			serviceCollection.RegisterFormCheckModule();
 		}
 	}
 }

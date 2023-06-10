@@ -2,6 +2,6 @@
 {
 	public interface IFormCheckService
 	{
-		Task Add(Stream stream);
+		Task Add(string fileName, Stream stream);
 	}
 }

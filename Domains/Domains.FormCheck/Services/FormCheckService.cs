@@ -1,4 +1,5 @@
-﻿using Domains.FormCheck.Persistence.Media;
+﻿using Domains.FormCheck.Persistence;
+using Domains.FormCheck.Persistence.Media;
 
 namespace Domains.FormCheck.Services
 {
@@ -6,14 +7,26 @@ namespace Domains.FormCheck.Services
 	{
 		private readonly IFormCheckMediaRepository _formCheckMediaRepository;
 
-		public FormCheckService(IFormCheckMediaRepository formCheckMediaRepository)
+		private readonly IFormCheckRepository _formCheckRepository;
+
+		public FormCheckService(
+			IFormCheckMediaRepository formCheckMediaRepository,
+			IFormCheckRepository formCheckRepository)
 		{
 			_formCheckMediaRepository = formCheckMediaRepository;
+			_formCheckRepository = formCheckRepository;
 		}
 
-		public async Task Add(Stream stream)
+		public async Task Add(string fileName, Stream stream)
 		{
-			await _formCheckMediaRepository.Persist(stream);
+			var assetUri = await _formCheckMediaRepository.Persist(fileName, stream);
+
+			var model = new Models.FormCheckDto()
+			{
+				AssetUrl = assetUri.ToString()
+			};
+
+			await _formCheckRepository.Store(model);
 		}
 	}
 }

@@ -5,7 +5,7 @@
       "commandVersion": "1.0",
       "serviceActions": {
         "choon.api": "StartDebugging",
-        "choon.azurite": "StartWithoutDebugging"
+        "azurite": "StartWithoutDebugging"
       }
     }
   }

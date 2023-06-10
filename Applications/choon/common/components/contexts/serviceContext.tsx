@@ -5,7 +5,7 @@ export type ServiceContext = {
 	formCheckContentService: IFormCheckContentService;
 };
 
-const Context = React.createContext<ServiceContext>({} as ServiceContext);
+export const Context = React.createContext<ServiceContext>({} as ServiceContext);
 
 export type Props = {
 	context: ServiceContext;

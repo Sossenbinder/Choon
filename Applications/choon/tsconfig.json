@@ -16,6 +16,7 @@
 		"incremental": true,
 		"paths": {
 			"@common/*": ["./common/components/*"],
+			"@hooks/*": ["./common/hooks/*"],
 			"@formcheck/*": ["./features/formcheck/*"]
 		},
 		"plugins": [

@@ -2,6 +2,6 @@
 {
 	internal interface IFormCheckMediaRepository
 	{
-		Task<string> Persist(Stream mediaStream);
+		Task<Uri> Persist(string fileName, Stream mediaStream);
 	}
 }

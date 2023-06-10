@@ -1,13 +1,15 @@
 using Choon.Api;
+using Choon.Api.Endpoints;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
-builder.Services.AddControllers();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+builder.Services.AddAuthorization();
+builder.Services.AddAuthentication();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+builder.Services.AddCors();
 
 Startup.Setup(builder);
 
@@ -20,10 +22,15 @@ if (app.Environment.IsDevelopment())
 	app.UseSwaggerUI();
 }
 
+app.UseCors(options =>
+{
+	options.WithOrigins("http://localhost:3000").AllowAnyHeader().AllowAnyMethod();
+});
+
 app.UseHttpsRedirection();
 
 app.UseAuthorization();
 
-app.MapControllers();
+app.AddFormCheckEndpoints();
 
 app.Run();

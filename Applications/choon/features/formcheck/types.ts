@@ -1,1 +1,3 @@
-export interface IFormCheckContentService {}
+export interface IFormCheckContentService {
+	uploadFormCheckAsset(uploadFile: File): Promise<void>;
+}

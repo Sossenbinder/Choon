@@ -1,12 +1,15 @@
-import { Box, Image as MantineImage, createStyles, Flex, Text, Center } from "@mantine/core";
+import { useIsMobile } from "@hooks/mediaQueries/useIsMobile";
+import { Box, Image as MantineImage, createStyles, Flex, Text, Center, Modal } from "@mantine/core";
 import { IconCloudUpload } from "@tabler/icons-react";
-import * as React from "react";
+import { useRef, useState } from "react";
 
 const useStyles = createStyles((theme) => ({
 	commonSection: {
 		height: "100%",
 		width: "100%",
 		borderRadius: "15px",
+		maxHeight: "100%",
+		maxWidth: "100%",
 	},
 	uploadSection: {
 		backgroundColor: theme.colorScheme === "dark" ? theme.colors.dark[3] : theme.colors.gray[2],
@@ -31,10 +34,15 @@ type Props = {
 
 export default function UploadFilePicker({ onFileChanged }: Props) {
 	const { classes, cx } = useStyles();
+	const isMobile = useIsMobile();
 
-	const inputRef = React.useRef<HTMLInputElement>(null);
+	const [preview, setPreview] = useState<string>();
+	const [previewModalOpen, setPreviewModalOpen] = useState(false);
 
-	const [preview, setPreview] = React.useState<string>();
+	const inputRef = useRef<HTMLInputElement>(null);
+	const headsUpRef = useRef<HTMLDivElement>(null);
+
+	const imageSize = headsUpRef.current?.clientHeight;
 
 	const onImageChange = (event: React.ChangeEvent<HTMLInputElement>) => {
 		const uploadedFile = event.currentTarget.files![0];
@@ -46,25 +54,31 @@ export default function UploadFilePicker({ onFileChanged }: Props) {
 	};
 
 	return (
-		<Box
-			m="md"
-			onClick={() => {
-				inputRef.current?.click();
-			}}
-		>
-			{!preview ? (
-				<Box className={cx(classes.uploadSection, classes.commonSection)}>
-					<Flex className="uploadHeadsUp" direction="column" align="center" justify="center">
-						<IconCloudUpload />
-						<Text className="uploadLabel">Upload your clip here</Text>
-					</Flex>
-					<input ref={inputRef} type="file" style={{ display: "none" }} onChange={onImageChange} />
-				</Box>
-			) : (
-				<Center className={classes.commonSection}>
-					<MantineImage src={preview} />
-				</Center>
-			)}
-		</Box>
+		<>
+			<Box
+				m="md"
+				onClick={() => {
+					inputRef.current?.click();
+				}}
+			>
+				{!preview ? (
+					<Box className={cx(classes.uploadSection, classes.commonSection)}>
+						<Flex className="uploadHeadsUp" direction="column" align="center" justify="center" ref={headsUpRef}>
+							<IconCloudUpload />
+							<Text className="uploadLabel">Upload your clip here</Text>
+						</Flex>
+						<input ref={inputRef} type="file" style={{ display: "none" }} onChange={onImageChange} />
+					</Box>
+				) : (
+					<Center className={classes.commonSection}>
+						<MantineImage src={preview} fit={isMobile ? "contain" : "cover"} height={`${imageSize}px`} onClick={() => setPreviewModalOpen(true)} />
+					</Center>
+				)}
+
+				<Modal opened={previewModalOpen} onClose={() => setPreviewModalOpen(false)} withCloseButton centered title="Upload">
+					<MantineImage src={preview} fit="cover" />
+				</Modal>
+			</Box>
+		</>
 	);
 }

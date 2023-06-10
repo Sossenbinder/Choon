@@ -11,7 +11,13 @@ Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-co
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Domains", "Domains", "{627721A1-05E2-4118-8886-DDDA47A4FBE5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Domains.FormCheck", "Domains\Domains.FormCheck\Domains.FormCheck.csproj", "{5E9B3F6F-0DB7-4E58-9D6D-25ED59264770}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Domains.FormCheck", "Domains\Domains.FormCheck\Domains.FormCheck.csproj", "{5E9B3F6F-0DB7-4E58-9D6D-25ED59264770}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Common", "Common\Common.csproj", "{059800B0-5214-41F3-9BE6-7B94204FCF67}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{E67D1671-88FE-4230-9D65-3F242D2DBFDB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Infrastructure", "Infrastructure\Infrastructure\Infrastructure.csproj", "{23E4ABE7-DD64-4225-AAE5-150060E8CEC5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -31,6 +37,14 @@ Global
 		{5E9B3F6F-0DB7-4E58-9D6D-25ED59264770}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5E9B3F6F-0DB7-4E58-9D6D-25ED59264770}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5E9B3F6F-0DB7-4E58-9D6D-25ED59264770}.Release|Any CPU.Build.0 = Release|Any CPU
+		{059800B0-5214-41F3-9BE6-7B94204FCF67}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{059800B0-5214-41F3-9BE6-7B94204FCF67}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{059800B0-5214-41F3-9BE6-7B94204FCF67}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{059800B0-5214-41F3-9BE6-7B94204FCF67}.Release|Any CPU.Build.0 = Release|Any CPU
+		{23E4ABE7-DD64-4225-AAE5-150060E8CEC5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{23E4ABE7-DD64-4225-AAE5-150060E8CEC5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{23E4ABE7-DD64-4225-AAE5-150060E8CEC5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{23E4ABE7-DD64-4225-AAE5-150060E8CEC5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -38,6 +52,7 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{AD306741-33FB-4EA2-AECC-D3205F3CA6E7} = {D371479A-7A94-4664-B1E6-37E9E644CFDB}
 		{5E9B3F6F-0DB7-4E58-9D6D-25ED59264770} = {627721A1-05E2-4118-8886-DDDA47A4FBE5}
+		{23E4ABE7-DD64-4225-AAE5-150060E8CEC5} = {E67D1671-88FE-4230-9D65-3F242D2DBFDB}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {C779F826-228D-4013-8C10-7821991D11B7}
