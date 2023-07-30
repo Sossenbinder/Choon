@@ -1,12 +1,12 @@
+import { useIsMobile } from "@hooks/mediaQueries/useIsMobile";
 import { Button, createStyles, Flex, Textarea, TextInput } from "@mantine/core";
 import { useForm } from "@mantine/form";
-import { useIsMobile } from "../../../../common/hooks/mediaQueries/useIsMobile";
 
 type Props = {
-	onSubmit(): void;
+	onSubmit(form: Form): void;
 };
 
-type Form = {
+export type Form = {
 	header: string;
 	description: string;
 };
@@ -44,7 +44,7 @@ export function UploadForm({ onSubmit }: Props) {
 					minRows={isMobile ? undefined : 10}
 				/>
 			</Flex>
-			<Button onClick={onSubmit}>Submit</Button>
+			<Button onClick={() => onSubmit(inputForm.values)}>Submit</Button>
 		</Flex>
 	);
 }

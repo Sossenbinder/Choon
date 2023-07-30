@@ -1,7 +1,7 @@
 import React from "react";
 import { Center, createStyles, Divider } from "@mantine/core";
 import UploadFilePicker from "./uploadFilepicker";
-import { UploadForm } from "./uploadForm";
+import { Form, UploadForm } from "./uploadForm";
 import useServices from "@hooks/useServices";
 import { useIsMobile } from "@hooks/mediaQueries/useIsMobile";
 
@@ -26,12 +26,12 @@ export default function UploadBox() {
 
 	const { formCheckContentService } = useServices();
 
-	const upload = async () => {
+	const upload = async (form: Form) => {
 		if (!uploadFile) {
 			return;
 		}
 
-		await formCheckContentService.uploadFormCheckAsset(uploadFile);
+		await formCheckContentService.uploadFormCheckAsset(uploadFile, form);
 	};
 
 	return (

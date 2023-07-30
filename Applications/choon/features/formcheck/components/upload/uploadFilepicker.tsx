@@ -28,6 +28,16 @@ const useStyles = createStyles((theme) => ({
 	},
 }));
 
+enum FileType {
+	Image,
+	Video,
+}
+
+type PickedFile = {
+	fileUrl: string;
+	type: FileType;
+};
+
 type Props = {
 	onFileChanged(file: File): void;
 };
@@ -36,7 +46,7 @@ export default function UploadFilePicker({ onFileChanged }: Props) {
 	const { classes, cx } = useStyles();
 	const isMobile = useIsMobile();
 
-	const [preview, setPreview] = useState<string>();
+	const [preview, setPreview] = useState<PickedFile>();
 	const [previewModalOpen, setPreviewModalOpen] = useState(false);
 
 	const inputRef = useRef<HTMLInputElement>(null);
@@ -50,7 +60,12 @@ export default function UploadFilePicker({ onFileChanged }: Props) {
 		onFileChanged(uploadedFile);
 
 		const fileUrl = URL.createObjectURL(uploadedFile);
-		setPreview(fileUrl);
+		const fileType = uploadedFile.type === "video/mp4" ? FileType.Video : FileType.Image;
+
+		setPreview({
+			fileUrl,
+			type: fileType,
+		});
 	};
 
 	return (
@@ -71,12 +86,21 @@ export default function UploadFilePicker({ onFileChanged }: Props) {
 					</Box>
 				) : (
 					<Center className={classes.commonSection}>
-						<MantineImage src={preview} fit={isMobile ? "contain" : "cover"} height={`${imageSize}px`} onClick={() => setPreviewModalOpen(true)} />
+						{preview.type === FileType.Image ? (
+							<MantineImage
+								src={preview.fileUrl}
+								fit={isMobile ? "contain" : "cover"}
+								height={`${imageSize}px`}
+								onClick={() => setPreviewModalOpen(true)}
+							/>
+						) : (
+							<video width="100%" src={preview.fileUrl} controls></video>
+						)}
 					</Center>
 				)}
 
 				<Modal opened={previewModalOpen} onClose={() => setPreviewModalOpen(false)} withCloseButton centered title="Upload">
-					<MantineImage src={preview} fit="cover" />
+					<MantineImage src={preview?.fileUrl} fit="cover" />
 				</Modal>
 			</Box>
 		</>

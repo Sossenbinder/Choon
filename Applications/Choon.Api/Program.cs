@@ -1,5 +1,6 @@
 using Choon.Api;
 using Choon.Api.Endpoints;
+using Choon.Api.Endpoints.FormCheck;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -31,6 +32,8 @@ app.UseHttpsRedirection();
 
 app.UseAuthorization();
 
-app.AddFormCheckEndpoints();
+app
+	.AddFormCheckEndpoints()
+	.AddAccountEndpoints();
 
 app.Run();
