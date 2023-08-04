@@ -19,14 +19,20 @@ namespace Domains.FormCheck.Services
 
 		public async Task Add(string fileName, Stream stream)
 		{
-			var assetUri = await _formCheckMediaRepository.Persist(fileName, stream);
-
-			var model = new Models.FormCheckDto()
+			try
 			{
-				AssetUrl = assetUri.ToString()
-			};
+				var assetUri = await _formCheckMediaRepository.Persist(fileName, stream);
 
-			await _formCheckRepository.Store(model);
+				var model = new Models.FormCheckDto()
+				{
+					AssetUrl = assetUri.ToString()
+				};
+
+				await _formCheckRepository.Store(model);
+			}
+			catch (Exception ex)
+			{
+			}
 		}
 	}
 }

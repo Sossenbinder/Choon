@@ -4,9 +4,15 @@ namespace Domains.FormCheck.Persistence.Entities
 {
 	internal class FormCheckEntity
 	{
+		public string UserId { get; set; }
+
 		public int Id { get; set; }
 
 		public string AssetUrl { get; set; } = default!;
+
+		public string Header { get; set; } = default!;
+
+		public string Description { get; set; } = default!;
 
 		public FormCheckDto ToModel()
 		{
@@ -14,6 +20,9 @@ namespace Domains.FormCheck.Persistence.Entities
 			{
 				Id = Id,
 				AssetUrl = AssetUrl,
+				Description = Description,
+				Header = Header,
+				UserId = UserId
 			};
 		}
 
@@ -23,6 +32,9 @@ namespace Domains.FormCheck.Persistence.Entities
 			{
 				Id = model.Id,
 				AssetUrl = model.AssetUrl,
+				Description = model.Description,
+				Header = model.Description,
+				UserId = model.UserId
 			};
 		}
 	}

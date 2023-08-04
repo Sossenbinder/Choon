@@ -1,7 +1,9 @@
-﻿namespace Domains.FormCheck.Services
+﻿using FluentResults;
+
+namespace Domains.FormCheck.Services
 {
 	public interface IFormCheckService
 	{
-		Task Add(string fileName, Stream stream);
+		Task<Result> Add(string fileName, Stream stream);
 	}
 }

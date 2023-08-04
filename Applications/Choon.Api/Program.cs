@@ -1,16 +1,12 @@
 using Choon.Api;
-using Choon.Api.Endpoints;
-using Choon.Api.Endpoints.FormCheck;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
-builder.Services.AddAuthorization();
-builder.Services.AddAuthentication();
+builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-builder.Services.AddCors();
 
 Startup.Setup(builder);
 
@@ -29,11 +25,8 @@ app.UseCors(options =>
 });
 
 app.UseHttpsRedirection();
-
 app.UseAuthorization();
-
-app
-	.AddFormCheckEndpoints()
-	.AddAccountEndpoints();
+app.UseAuthentication();
+app.MapControllers();
 
 app.Run();
