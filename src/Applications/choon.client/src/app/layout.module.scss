@@ -1,0 +1,17 @@
+.mainSection {
+    height: calc(100vh - 40px);
+}
+
+.contentContainer {
+    height: 100%;
+    .content {
+        display: grid;
+        place-items: center;
+        width: 80%;
+        max-width: 80%;
+        height: 100%;
+        min-height: 100%;
+
+        background-color: light-dark(var(--mantine-color-gray-1), var(--mantine-color-dark-5));
+    }
+}

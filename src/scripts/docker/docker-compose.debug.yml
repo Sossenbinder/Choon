@@ -1,0 +1,36 @@
+version: '3.4'
+
+networks:
+  choon: {}
+
+volumes:
+  choon_pgsql: {}
+  
+services:
+  azurite:
+    image: mcr.microsoft.com/azure-storage/azurite:3.29.0
+    networks:
+      - choon
+    restart: unless-stopped
+    ports:
+      - "10180:10000"
+      - "10181:10001"
+      - "10182:10002"
+    entrypoint: "azurite --loose -l /data --oauth=basic --blobPort 10000 --blobHost 0.0.0.0 --queuePort 10001 --queueHost 0.0.0.0 --tablePort 10002 --tableHost 0.0.0.0 --debug /debug.log"
+    labels:
+      - choon_debug
+
+  postgres:
+    image: postgres
+    networks:
+      - choon
+    restart: unless-stopped
+    ports:
+      - "10183:5432"
+    environment:
+      POSTGRES_USER: test
+      POSTGRES_PASSWORD: test
+    volumes:
+      - choon_pgsql:/var/lib/postgresql/data
+    labels:
+      - choon_debug

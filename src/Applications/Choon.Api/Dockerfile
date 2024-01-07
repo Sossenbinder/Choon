@@ -1,20 +1,24 @@
-#See https://aka.ms/customizecontainer to learn how to customize your debug container and how Visual Studio uses this Dockerfile to build your images for faster debugging.
-
-FROM mcr.microsoft.com/dotnet/aspnet:7.0 AS base
+﻿FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS base
+USER $APP_UID
 WORKDIR /app
-EXPOSE 80
-EXPOSE 443
+EXPOSE 8080
+EXPOSE 8081
 
-FROM mcr.microsoft.com/dotnet/sdk:7.0 AS build
+FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
+ARG BUILD_CONFIGURATION=Release
 WORKDIR /src
-COPY ["Applications/Choon.Api/Choon.Api.csproj", "Applications/Choon.Api/"]
-RUN dotnet restore "Applications/Choon.Api/Choon.Api.csproj"
+COPY ["src/Applications/Choon.Api/Choon.Api.csproj", "src/Applications/Choon.Api/"]
+COPY ["src/Domains/Domains.FormCheck/Domains.FormCheck.csproj", "src/Domains/Domains.FormCheck/"]
+COPY ["src/Common/Common.csproj", "src/Common/"]
+COPY ["src/Infrastructure/Infrastructure/Infrastructure.csproj", "src/Infrastructure/Infrastructure/"]
+RUN dotnet restore "src/Applications/Choon.Api/Choon.Api.csproj"
 COPY . .
-WORKDIR "/src/Applications/Choon.Api"
-RUN dotnet build "Choon.Api.csproj" -c Release -o /app/build
+WORKDIR "/src/src/Applications/Choon.Api"
+RUN dotnet build "Choon.Api.csproj" -c $BUILD_CONFIGURATION -o /app/build
 
 FROM build AS publish
-RUN dotnet publish "Choon.Api.csproj" -c Release -o /app/publish /p:UseAppHost=false
+ARG BUILD_CONFIGURATION=Release
+RUN dotnet publish "Choon.Api.csproj" -c $BUILD_CONFIGURATION -o /app/publish /p:UseAppHost=false
 
 FROM base AS final
 WORKDIR /app

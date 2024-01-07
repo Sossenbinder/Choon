@@ -1,0 +1,9 @@
+@use '../../../../common/styles/mediaQueries.scss' as mq;
+
+.formBox {
+    padding: 2em;
+
+    @media (max-width: mq.$mantine-breakpoint-md) {
+        background-color: red;
+    }
+}

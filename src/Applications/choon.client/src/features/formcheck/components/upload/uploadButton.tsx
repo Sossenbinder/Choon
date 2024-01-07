@@ -1,17 +1,20 @@
-import { Button } from "@mantine/core";
-import { useNavigate } from "react-router-dom";
+import { Button } from '@mantine/core';
+import { useNavigate } from '@tanstack/react-router';
 
 export default function UploadButton() {
-  const navigate = useNavigate();
+    const navigate = useNavigate();
 
-  return (
-    <Button
-      sx={{
-        backgroundColor: "gray",
-      }}
-      size="xs"
-      onClick={() => navigate("/upload")}>
-      Upload
-    </Button>
-  );
+    return (
+        <Button
+            style={{ backgroundColor: 'gray' }}
+            size="xs"
+            onClick={() =>
+                navigate({
+                    to: '/upload',
+                })
+            }
+        >
+            Upload
+        </Button>
+    );
 }

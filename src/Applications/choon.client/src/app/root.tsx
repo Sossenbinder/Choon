@@ -1,10 +1,7 @@
-import RootLayout from "./layout";
-import { PageRouter } from "./routing/pageRouter";
+import { Router, RouterProvider } from '@tanstack/react-router';
+import { routeTree } from './routing/rootRoutes';
 
 export function Root() {
-  return (
-    <RootLayout>
-      <PageRouter />
-    </RootLayout>
-  );
+    const router = new Router({ routeTree });
+    return <RouterProvider router={router} />;
 }
