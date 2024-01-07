@@ -1,6 +1,5 @@
 ﻿using System.Net;
 using Choon.Api.Attributes;
-using Choon.Api.Binders;
 using Choon.Api.Features.FormCheck.Models;
 using Domains.FormCheck.Services;
 using Microsoft.AspNetCore.Mvc;

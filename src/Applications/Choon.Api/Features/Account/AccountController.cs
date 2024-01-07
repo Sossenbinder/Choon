@@ -6,5 +6,11 @@ namespace Choon.Api.Features.Account
 	[Route("[controller]")]
 	public class AccountController : ControllerBase
 	{
+		[HttpPost]
+		[Route("identify")]
+		public async Task<IActionResult> Identify()
+		{
+			return Ok();
+		}
 	}
 }

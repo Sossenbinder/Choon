@@ -3,21 +3,33 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.5.33103.201
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Applications", "Applications", "{D371479A-7A94-4664-B1E6-37E9E644CFDB}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Applications", "src\Applications", "{D371479A-7A94-4664-B1E6-37E9E644CFDB}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Choon.Api", "Applications\Choon.Api\Choon.Api.csproj", "{AD306741-33FB-4EA2-AECC-D3205F3CA6E7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Choon.Api", "src\Applications\Choon.Api\Choon.Api.csproj", "{AD306741-33FB-4EA2-AECC-D3205F3CA6E7}"
 EndProject
-Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{501EBDD2-8922-48E6-8EC8-D193920D0E8F}"
+Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "src\docker\docker-compose.dcproj", "{501EBDD2-8922-48E6-8EC8-D193920D0E8F}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Domains", "Domains", "{627721A1-05E2-4118-8886-DDDA47A4FBE5}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Domains", "src\Domains", "{627721A1-05E2-4118-8886-DDDA47A4FBE5}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Domains.FormCheck", "Domains\Domains.FormCheck\Domains.FormCheck.csproj", "{5E9B3F6F-0DB7-4E58-9D6D-25ED59264770}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Domains.FormCheck", "src\Domains\Domains.FormCheck\Domains.FormCheck.csproj", "{5E9B3F6F-0DB7-4E58-9D6D-25ED59264770}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Common", "Common\Common.csproj", "{059800B0-5214-41F3-9BE6-7B94204FCF67}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Common", "src\Common\Common.csproj", "{059800B0-5214-41F3-9BE6-7B94204FCF67}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{E67D1671-88FE-4230-9D65-3F242D2DBFDB}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "src\Infrastructure", "{E67D1671-88FE-4230-9D65-3F242D2DBFDB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Infrastructure", "Infrastructure\Infrastructure\Infrastructure.csproj", "{23E4ABE7-DD64-4225-AAE5-150060E8CEC5}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Infrastructure", "src\Infrastructure\Infrastructure\Infrastructure.csproj", "{23E4ABE7-DD64-4225-AAE5-150060E8CEC5}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".root", ".root", "{3F765473-27B3-4364-B690-C6FF0B5177EA}"
+	ProjectSection(SolutionItems) = preProject
+		.dockerignore = .dockerignore
+		.gitignore = .gitignore
+		Directory.Build.props = Directory.Build.props
+		Directory.Packages.props = Directory.Packages.props
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "workflows", "workflows", "{DE124502-A437-4A3B-9297-4B93BC549D86}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "docker", "docker", "{AF396540-4718-4CF4-8D8F-C2B8CC10B7A1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -53,6 +65,9 @@ Global
 		{AD306741-33FB-4EA2-AECC-D3205F3CA6E7} = {D371479A-7A94-4664-B1E6-37E9E644CFDB}
 		{5E9B3F6F-0DB7-4E58-9D6D-25ED59264770} = {627721A1-05E2-4118-8886-DDDA47A4FBE5}
 		{23E4ABE7-DD64-4225-AAE5-150060E8CEC5} = {E67D1671-88FE-4230-9D65-3F242D2DBFDB}
+		{DE124502-A437-4A3B-9297-4B93BC549D86} = {3F765473-27B3-4364-B690-C6FF0B5177EA}
+		{AF396540-4718-4CF4-8D8F-C2B8CC10B7A1} = {3F765473-27B3-4364-B690-C6FF0B5177EA}
+		{501EBDD2-8922-48E6-8EC8-D193920D0E8F} = {AF396540-4718-4CF4-8D8F-C2B8CC10B7A1}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {C779F826-228D-4013-8C10-7821991D11B7}

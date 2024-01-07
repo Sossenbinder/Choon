@@ -19,11 +19,15 @@ namespace Choon.Api.Binders
 			var valueProviderResult = bindingContext.ValueProvider.GetValue(PayloadConstant);
 			if (valueProviderResult != ValueProviderResult.None)
 			{
-				bindingContext.ModelState.SetModelValue(PayloadConstant, valueProviderResult);
+				bindingContext.ModelState.SetModelValue(bindingContext.ModelName, valueProviderResult);
 
 				// Attempt to convert the input value
 				var valueAsString = valueProviderResult.FirstValue;
-				var result = JsonSerializer.Deserialize(valueAsString, bindingContext.ModelType);
+				var result = JsonSerializer.Deserialize(valueAsString, bindingContext.ModelType, new JsonSerializerOptions()
+				{
+					PropertyNameCaseInsensitive = true
+				});
+
 				if (result != null)
 				{
 					bindingContext.Result = ModelBindingResult.Success(result);

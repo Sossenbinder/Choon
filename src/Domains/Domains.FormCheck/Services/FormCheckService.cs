@@ -1,4 +1,6 @@
-﻿using Domains.FormCheck.Persistence;
+﻿using System.Runtime.InteropServices.JavaScript;
+using Ardalis.Result;
+using Domains.FormCheck.Persistence;
 using Domains.FormCheck.Persistence.Media;
 
 namespace Domains.FormCheck.Services
@@ -17,7 +19,7 @@ namespace Domains.FormCheck.Services
 			_formCheckRepository = formCheckRepository;
 		}
 
-		public async Task Add(string fileName, Stream stream)
+		public async Task<Result> Add(string fileName, Stream stream)
 		{
 			try
 			{
@@ -29,9 +31,12 @@ namespace Domains.FormCheck.Services
 				};
 
 				await _formCheckRepository.Store(model);
+
+				return Result.Success();
 			}
 			catch (Exception ex)
 			{
+				return Result.Error(ex.Message);
 			}
 		}
 	}

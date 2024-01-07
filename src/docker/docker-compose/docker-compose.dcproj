@@ -5,7 +5,7 @@
     <DockerTargetOS>Linux</DockerTargetOS>
     <ProjectGuid>501ebdd2-8922-48e6-8ec8-d193920d0e8f</ProjectGuid>
     <DockerLaunchAction>None</DockerLaunchAction>
-    <DockerServiceUrl>{Scheme}://localhost:{ServicePort}/swagger</DockerServiceUrl>
+    <DockerServiceUrl>https://localhost:2336</DockerServiceUrl>
     <DockerServiceName>choon.api</DockerServiceName>
   </PropertyGroup>
   <ItemGroup>
