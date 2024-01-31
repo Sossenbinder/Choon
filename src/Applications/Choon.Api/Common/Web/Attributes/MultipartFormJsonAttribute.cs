@@ -1,7 +1,7 @@
-﻿using Choon.Api.Features.Common.Web.Binders;
+﻿using Choon.Api.Common.Web.Binders;
 using Microsoft.AspNetCore.Mvc;
 
-namespace Choon.Api.Features.Common.Web.Attributes;
+namespace Choon.Api.Common.Web.Attributes;
 
 public class MultipartFormJsonAttribute : ModelBinderAttribute
 {

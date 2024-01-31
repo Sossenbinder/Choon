@@ -1,29 +1,32 @@
 {
-  "compilerOptions": {
-    "baseUrl": "./src",
-    "target": "ES2020",
-    "useDefineForClassFields": true,
-    "lib": ["ES2020", "DOM", "DOM.Iterable"],
-    "module": "ESNext",
-    "skipLibCheck": true,
+    "compilerOptions": {
+        "baseUrl": "./src",
+        "target": "ES2020",
+        "useDefineForClassFields": true,
+        "lib": ["ES2020", "DOM", "DOM.Iterable"],
+        "module": "ESNext",
+        "skipLibCheck": true,
 
-    /* Bundler mode */
-    "moduleResolution": "node",
-    "noEmit": true,
-    "jsx": "react-jsx",
-    "allowSyntheticDefaultImports": true,
+        /* Bundler mode */
+        "moduleResolution": "node",
+        "noEmit": true,
+        "jsx": "react-jsx",
+        "allowSyntheticDefaultImports": true,
+        "resolveJsonModule": true,
 
-    /* Linting */
-    "strict": true,
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
-    "noFallthroughCasesInSwitch": true,
-    "paths": {
-      "@common/*": ["./common/components/*"],
-      "@hooks/*": ["./common/hooks/*"],
-      "@formcheck/*": ["./features/formcheck/*"]
-    }
-  },
-  "include": ["src"],
-  "references": [{ "path": "./tsconfig.node.json" }]
+        /* Linting */
+        "strict": true,
+        "noUnusedLocals": true,
+        "noUnusedParameters": true,
+        "noFallthroughCasesInSwitch": true,
+        "paths": {
+            "@common/*": ["./common/components/*"],
+            "@hooks/*": ["./common/hooks/*"],
+            "@formcheck/*": ["./features/formcheck/*"],
+            "@root/*": ["*"]
+        }
+    },
+    "include": ["src"],
+    "references": [{ "path": "./tsconfig.node.json" }]
 }
+

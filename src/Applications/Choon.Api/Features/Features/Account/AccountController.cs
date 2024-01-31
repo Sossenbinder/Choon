@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 
 namespace Choon.Api.Features.Features.Account;
 
@@ -6,10 +7,4 @@ namespace Choon.Api.Features.Features.Account;
 [Route("[controller]")]
 public class AccountController : ControllerBase
 {
-    [HttpPost]
-    [Route("identify")]
-    public async Task<IActionResult> Identify()
-    {
-        return Ok();
-    }
 }

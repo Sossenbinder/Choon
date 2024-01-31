@@ -1,10 +1,10 @@
-import { Outlet, RootRoute, Route } from '@tanstack/react-router';
+import { createRootRoute, Outlet, createRoute } from '@tanstack/react-router';
 import { TanStackRouterDevtools } from '@tanstack/router-devtools';
 import RootLayout from 'app/layout';
 import FormCheckPage from '../pages/root/formcheckPage';
 import { FormCheckUploadPage } from '../pages/upload/formcheckUploadPage';
 
-const rootRoute = new RootRoute({
+const rootRoute = createRootRoute({
     component: () => (
         <>
             <RootLayout>
@@ -15,16 +15,16 @@ const rootRoute = new RootRoute({
     ),
 });
 
-const indexRoute = new Route({
+const indexRoute = createRoute({
     getParentRoute: () => rootRoute,
     path: '/',
     component: () => <FormCheckPage />,
 });
 
-const uploadRoute = new Route({
+const uploadRoute = createRoute({
     getParentRoute: () => rootRoute,
     path: '/upload',
     component: () => <FormCheckUploadPage />,
 });
 
-export const routeTree = rootRoute.addChildren([indexRoute, uploadRoute]);
+export const routeConfig = rootRoute.addChildren([indexRoute, uploadRoute]);

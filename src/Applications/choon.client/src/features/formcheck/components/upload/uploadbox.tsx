@@ -1,5 +1,5 @@
 import React from 'react';
-import { Center, createStyles, Divider } from '@mantine/core';
+import { Center, Divider } from '@mantine/core';
 import UploadFilePicker from './uploadFilepicker';
 import { Form, UploadForm } from './uploadForm';
 import useServices from '@hooks/useServices';

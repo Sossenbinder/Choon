@@ -1,9 +1,9 @@
 ﻿namespace Choon.Api.Features.Common.Web.Middleware;
 
-public class UserDetectionMiddleware : IMiddleware
+public class UserDetectionMiddleware(IUserContext userContext) : IMiddleware
 {
     public Task InvokeAsync(HttpContext context, RequestDelegate next)
     {
-		throw new NotImplementedException();
-	}
+        return Task.CompletedTask;
+    }
 }

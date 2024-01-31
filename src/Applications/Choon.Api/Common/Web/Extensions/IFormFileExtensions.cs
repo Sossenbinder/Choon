@@ -1,6 +1,6 @@
 ﻿using System.Text.Json;
 
-namespace Choon.Api.Features.Common.Web.Extensions;
+namespace Choon.Api.Common.Web.Extensions;
 
 public static class IFormFileExtensions
 {

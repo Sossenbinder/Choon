@@ -1,7 +1,7 @@
 ﻿using System.Text.Json;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
 
-namespace Choon.Api.Features.Common.Web.Binders;
+namespace Choon.Api.Common.Web.Binders;
 
 public class JsonModelBinder : IModelBinder
 {

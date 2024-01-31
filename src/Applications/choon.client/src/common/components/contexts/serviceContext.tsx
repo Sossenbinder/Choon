@@ -1,17 +1,17 @@
-import { IFormCheckContentService } from "@formcheck/types/services";
-import * as React from "react";
+import { IFormCheckContentService } from '@formcheck/types/services';
+import * as React from 'react';
 
-export type ServiceContext = {
-	formCheckContentService: IFormCheckContentService;
+export type Services = {
+    formCheckContentService: IFormCheckContentService;
 };
 
-export const Context = React.createContext<ServiceContext>({} as ServiceContext);
+export const Context = React.createContext<Services>({} as Services);
 
-export type Props = {
-	context: ServiceContext;
-	children: React.ReactNode;
-};
-
-export default function ServiceContextProvider({ context, children }: Props) {
-	return <Context.Provider value={context}>{children}</Context.Provider>;
+export default function ServiceContextProvider({
+    context,
+    children,
+}: React.PropsWithChildren<{
+    context: Services;
+}>) {
+    return <Context.Provider value={context}>{children}</Context.Provider>;
 }
