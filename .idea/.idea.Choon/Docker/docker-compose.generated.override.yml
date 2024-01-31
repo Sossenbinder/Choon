@@ -23,16 +23,16 @@ services:
       RESHARPER_LOG_CONF: "/etc/opt/rider-debugger/backend-log.xml"
     image: "choonapi:dev"
     ports:
-    - "127.0.0.1:57008:57100"
-    - "127.0.0.1:57208:57300"
+    - "127.0.0.1:57000:57100"
+    - "127.0.0.1:57200:57300"
     volumes:
     - "C:\\Users\\Stefan\\AppData\\Roaming\\Microsoft\\UserSecrets:/home/app/.microsoft/usersecrets"
     - "C:\\Users\\Stefan\\.nuget\\packages:/home/app/.nuget/packages"
     - "D:\\Coding\\Projects\\Choon\\src\\Applications\\Choon.Api:/app:rw"
     - "D:\\Coding\\Projects\\Choon:/src:rw"
-    - "C:\\Users\\Stefan\\AppData\\Local\\JetBrains\\RiderRemoteDebugger\\2023.3.2\\\
+    - "C:\\Users\\Stefan\\AppData\\Local\\JetBrains\\RiderRemoteDebugger\\2023.3.3\\\
       Linux64:/opt/rider-debugger"
-    - "D:\\Tools\\Rider\\JetBrains Rider 233.11799.49\\bin:/etc/opt/rider-debugger/backend-log.xml"
+    - "D:\\Tools\\Rider\\JetBrains Rider 2023.3.3\\bin:/etc/opt/rider-debugger/backend-log.xml"
     - "C:\\Users\\Stefan\\AppData\\Local\\JetBrains\\Rider2023.3\\log\\DebuggerWorker\\\
-      JetBrains.Debugger.Worker.2024_1_07_20_16_12:/var/opt/rider-debugger:rw"
+      JetBrains.Debugger.Worker.2024_1_31_13_10_58:/var/opt/rider-debugger:rw"
     working_dir: "/app"

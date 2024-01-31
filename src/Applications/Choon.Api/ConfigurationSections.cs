@@ -1,9 +1,10 @@
-﻿namespace Choon.Api
-{
-	internal static class ConfigurationSections
-	{
-		public static string FormCheckAzureStorageSettings => "FormCheck:AzureStorage";
+﻿namespace Choon.Api;
 
-		public static string SqlOptionsSettings => "SqlOptions";
-	}
+internal static class ConfigurationSections
+{
+    public const string FormCheckAzureStorageSettings = "Features:FormCheck:AzureStorage";
+
+    public const string SqlOptionsSettings = "SqlOptions";
+
+    public const string CorsSettings = "Cors";
 }

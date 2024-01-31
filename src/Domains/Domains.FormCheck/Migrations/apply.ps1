@@ -1,1 +1,0 @@
-dotnet ef database update -p ../Domains.FormCheck.csproj --connection "Server=tcp:localhost,1453;User ID=SA;Password=^dEbX2Ew;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=True;Connection Timeout=30;"
