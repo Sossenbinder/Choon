@@ -1,4 +1,4 @@
-﻿namespace Choon.Api.Features.Common.Web.Middleware;
+﻿namespace Choon.Api.Features.Common.Web.Auth.Middleware;
 
 public class UserDetectionMiddleware(IUserContext userContext) : IMiddleware
 {

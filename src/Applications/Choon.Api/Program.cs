@@ -1,8 +1,10 @@
 using Choon.Api;
 using Choon.Api.Common.Web.Models;
 using Choon.Api.Features.Common;
+using Choon.Api.Features.Common.Infrastructure.Persistence;
 using Choon.Api.Features.Common.Infrastructure.Persistence.Options;
-using Choon.Api.Features.Common.Web.Middleware;
+using Choon.Api.Features.Common.Web.Auth;
+using Choon.Api.Features.Common.Web.Auth.Middleware;
 using Choon.Api.Features.Features.FormCheck;
 using Microsoft.Extensions.Options;
 
@@ -13,6 +15,12 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+// Identity
+builder.Services.AddAuthorization();
+builder.Services
+    .AddIdentityApiEndpoints<User>()
+    .AddEntityFrameworkStores<ChoonDbContext>();
 
 var configuration = builder.Configuration;
 ConfigureOptions(builder, configuration);
@@ -39,6 +47,7 @@ app.UseHttpsRedirection();
 app.UseAuthorization();
 app.UseAuthentication();
 app.MapControllers();
+app.MapIdentityApi<User>();
 
 app.UseMiddleware<UserDetectionMiddleware>();
 
@@ -65,4 +74,7 @@ IServiceCollection RegisterServices(WebApplicationBuilder webApplicationBuilder,
 }
 
 // Necessary for WebApplicationFactory later on
-public partial class Program { }
+namespace Choon.Api
+{
+    public partial class Program { }
+}

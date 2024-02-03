@@ -1,7 +1,8 @@
 ﻿using Choon.Api.Features.Common.Infrastructure.Persistence;
 using Choon.Api.Features.Common.Infrastructure.Persistence.Options;
 using Choon.Api.Features.Common.Web;
-using Choon.Api.Features.Common.Web.Middleware;
+using Choon.Api.Features.Common.Web.Auth;
+using Choon.Api.Features.Common.Web.Auth.Middleware;
 using Choon.Api.Migrations;
 using FluentValidation;
 using Microsoft.EntityFrameworkCore;
